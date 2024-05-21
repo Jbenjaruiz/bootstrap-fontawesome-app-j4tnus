@@ -7,6 +7,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -24,6 +26,7 @@ import { ExcelService } from './services/excel.service';
     MatSortModule,
     MatInputModule,
     MatFormFieldModule,
+    MatButtonModule,
   ],
   declarations: [
     AppComponent,
@@ -31,7 +34,7 @@ import { ExcelService } from './services/excel.service';
     FooterComponent,
     ContentComponent,
   ],
-  providers: [ExcelService],
+  providers: [ExcelService, DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
