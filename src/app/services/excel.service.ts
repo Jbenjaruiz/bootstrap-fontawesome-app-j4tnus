@@ -1,6 +1,6 @@
 import * as XLSX from 'xlsx';
 
-interface SurveyData {
+export interface SurveyData {
   [key: string]: any;
   EE: number;
   DD: number;

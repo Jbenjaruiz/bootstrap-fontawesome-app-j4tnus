@@ -1,10 +1,37 @@
 <div class="container-fluid">
-	<div class="jumbotron">
-		<h1>Angular <span><fa-icon [icon]="faAngular"></fa-icon></span> + Bootstrap <span><fa-icon [icon]="faBook"></fa-icon></span> + FontAwesome <span><fa-icon [icon]="faFontAwesome"></fa-icon></span></h1>
-		<p>
-			In this tutorial you learn how to use Angular CLI v6 with Bootstrap and FontAwesome!
-		</p>
-	</div>
+  <div>
+    <h1>{{ message }}</h1>
+    <input type="file" (change)="onFileChange($event)" />
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
 
-
+          <th>DD</th>
+          <th>EE</th>
+          <th>Equipo</th>
+          <th>Jefe Inmediato</th>
+          <th>Nombre Completo</th>
+          <th>PA</th>
+          <th>Puesto</th>
+          <th>End</th>
+          <th>Comentarios</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of surveyData">
+          <td>{{ data._id }}</td>
+          <td>{{ data.DD }}</td>
+          <td>{{ data.EE }}</td>
+          <td>{{ data.Equipo }}</td>
+          <td>{{ data.Jefe_Inmediato }}</td>
+          <td>{{ data.Nombre_Completo }}</td>
+          <td>{{ data.PA }}</td>
+          <td>{{ data.Puesto }}</td>
+          <td>{{ data.end }}</td>
+          <td>{{ data.Cometarios }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
