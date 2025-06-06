@@ -3,8 +3,16 @@
   <p><strong>Fecha de finalización:</strong> {{ finalizadoDate }}</p>
   <p><strong>Valores:</strong></p>
   <div class="copy-row">
-    <span class="copy-label" >EE:</span>
-    <span class="copy-value" [ngClass]="getLevelClass('EE', data.EE)" >{{
+    <div class="label-with-icon">
+      <span class="copy-label">EE:</span>
+      <mat-icon
+        matTooltip="Agotamiento Emocional: Valora la vivencia de estar exhausto. Un puntaje ALTO es desfavorable."
+        class="info-icon"
+      >
+        info_outline
+      </mat-icon>
+    </div>
+    <span class="copy-value" [ngClass]="getLevelClass('EE', data.EE)">{{
       data.EE
     }}</span>
     <button
@@ -18,7 +26,15 @@
   </div>
 
   <div class="copy-row">
-    <span class="copy-label">DD:</span>
+    <div class="label-with-icon">
+      <span class="copy-label">DD:</span>
+      <mat-icon
+        matTooltip="Despersonalización: Valora el grado de frialdad y distanciamiento. Un puntaje ALTO es desfavorable."
+        class="info-icon"
+      >
+        info_outline
+      </mat-icon>
+    </div>
     <span class="copy-value" [ngClass]="getLevelClass('DD', data.DD)">{{
       data.DD
     }}</span>
@@ -33,7 +49,15 @@
   </div>
 
   <div class="copy-row">
-    <span class="copy-label">PA:</span>
+    <div class="label-with-icon">
+      <span class="copy-label">PA:</span>
+      <mat-icon
+        matTooltip="Realización Personal: Evalúa los sentimientos de autoeficacia. Un puntaje ALTO es favorable."
+        class="info-icon"
+      >
+        info_outline
+      </mat-icon>
+    </div>
     <span class="copy-value" [ngClass]="getLevelClass('PA', data.PA)">{{
       data.PA
     }}</span>

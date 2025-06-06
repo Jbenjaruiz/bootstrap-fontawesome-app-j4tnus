@@ -44,3 +44,61 @@
   color: #721c24; /* Rojo oscuro */
   border: 1px solid #f5c6cb;
 }
+
+/* En details-dialog.component.css */
+
+.copy-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Contenedor para la etiqueta y el nuevo ícono */
+.label-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espacio entre la etiqueta y el ícono */
+  font-weight: bold;
+  width: 85px; /* Ancho fijo para alinear las tres filas */
+}
+
+/* Estilos para el ícono de información */
+.info-icon {
+  font-size: 18px;
+  height: 18px;
+  width: 18px;
+  color: #a0a0a0; /* Un color gris para que sea sutil */
+  cursor: help; /* Cambia el cursor para indicar que hay ayuda */
+}
+
+/* --- (Estilos que ya tenías) --- */
+.copy-label {
+  font-weight: normal; /* El bold ya está en el contenedor padre */
+}
+
+.copy-value {
+  flex-grow: 1;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 3px;
+  margin-right: 8px;
+  text-align: center;
+}
+
+/* Clases para los niveles de color */
+.level-green {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.level-orange {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+.level-red {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
