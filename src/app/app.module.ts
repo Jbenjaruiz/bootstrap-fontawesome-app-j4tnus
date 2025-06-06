@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { DatePipe } from '@angular/common';
 
@@ -35,7 +35,7 @@ import { ExcelService } from './services/excel.service';
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
-    MatSnackBarModule,
+    MatTooltipModule,
   ],
   declarations: [
     AppComponent,
