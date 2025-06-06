@@ -46,5 +46,6 @@ import { ExcelService } from './services/excel.service';
   ],
   providers: [ExcelService, DatePipe],
   bootstrap: [AppComponent],
+  entryComponents: [DetailsDialogComponent],
 })
 export class AppModule {}
