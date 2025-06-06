@@ -2,7 +2,6 @@
 
 <mat-dialog-content>
   <p><strong>Fecha de finalización:</strong> {{ finalizadoDate }}</p>
-
   <p><strong>Valores:</strong></p>
 
   <div class="copy-row">
@@ -10,7 +9,7 @@
     <span class="copy-value">{{ data.EE }}</span>
     <button
       mat-icon-button
-      [cdkCopyToClipboard]="data.EE"
+      (click)="copyToClipboard(data.EE)"
       aria-label="Copiar valor EE"
     >
       <mat-icon>content_copy</mat-icon>
@@ -22,7 +21,7 @@
     <span class="copy-value">{{ data.DD }}</span>
     <button
       mat-icon-button
-      [cdkCopyToClipboard]="data.DD"
+      (click)="copyToClipboard(data.DD)"
       aria-label="Copiar valor DD"
     >
       <mat-icon>content_copy</mat-icon>
@@ -34,7 +33,7 @@
     <span class="copy-value">{{ data.PA }}</span>
     <button
       mat-icon-button
-      [cdkCopyToClipboard]="data.PA"
+      (click)="copyToClipboard(data.PA)"
       aria-label="Copiar valor PA"
     >
       <mat-icon>content_copy</mat-icon>

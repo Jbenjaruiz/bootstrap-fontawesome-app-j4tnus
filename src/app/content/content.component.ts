@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 import { ExcelService, SurveyData } from '../services/excel.service';
 import { DatePipe } from '@angular/common';
 
@@ -29,7 +31,11 @@ export class ContentComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('fileInput') fileInput;
 
-  constructor(private excelService: ExcelService, private datePipe: DatePipe) {}
+  constructor(
+    private excelService: ExcelService,
+    private datePipe: DatePipe,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
@@ -59,7 +65,10 @@ export class ContentComponent implements OnInit {
   }
 
   onRowButtonClick(row: SurveyData): void {
-    console.log(row);
+    this.dialog.open(DetailsDialogComponent, {
+      width: '500px', // Define un ancho para el modal
+      data: row, // Pasamos los datos completos de la fila al modal
+    });
   }
 
   formatDate(date: Date): string {

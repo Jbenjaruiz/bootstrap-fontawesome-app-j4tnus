@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { ClipboardModule } from '@angular/cdk/clipboard'; // Para copiar
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DatePipe } from '@angular/common';
 
@@ -33,9 +33,9 @@ import { ExcelService } from './services/excel.service';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatDialogModule, // Añade el módulo de Dialog
-    MatIconModule, // Para usar íconos como el de "copiar"
-    ClipboardModule, // Añade el módulo de Clipboard
+    MatDialogModule,
+    MatIconModule,
+    MatSnackBarModule,
   ],
   declarations: [
     AppComponent,
