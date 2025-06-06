@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>ID: {{ data._id }} - {{ data.Nombre_Completo }}</h2>
+
+<mat-dialog-content>
+  <p><strong>Fecha de finalización:</strong> {{ finalizadoDate }}</p>
+
+  <p><strong>Valores:</strong></p>
+
+  <div class="copy-row">
+    <span class="copy-label">EE:</span>
+    <span class="copy-value">{{ data.EE }}</span>
+    <button
+      mat-icon-button
+      [cdkCopyToClipboard]="data.EE"
+      aria-label="Copiar valor EE"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+
+  <div class="copy-row">
+    <span class="copy-label">DD:</span>
+    <span class="copy-value">{{ data.DD }}</span>
+    <button
+      mat-icon-button
+      [cdkCopyToClipboard]="data.DD"
+      aria-label="Copiar valor DD"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+
+  <div class="copy-row">
+    <span class="copy-label">PA:</span>
+    <span class="copy-value">{{ data.PA }}</span>
+    <button
+      mat-icon-button
+      [cdkCopyToClipboard]="data.PA"
+      aria-label="Copiar valor PA"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onClose()">Cerrar</button>
+</mat-dialog-actions>
