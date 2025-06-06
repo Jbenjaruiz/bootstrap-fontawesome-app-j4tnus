@@ -43,6 +43,14 @@ export class ContentComponent implements OnInit {
         .readExcel(file)
         .then((data: SurveyData[]) => {
           this.dataSource.data = data; // Almacenar los datos leídos del archivo Excel
+          if (this.sort) {
+            // 2. Establecemos la columna activa para el ordenamiento.
+            this.sort.active = '_id';
+            // 3. Establecemos la dirección del ordenamiento a 'desc' (descendente).
+            this.sort.direction = 'desc';
+            // 4. Notificamos a la tabla que el ordenamiento ha cambiado.
+            this.sort.sortChange.emit();
+          }
         })
         .catch((error) => {
           console.error('Error leyendo el archivo:', error);
