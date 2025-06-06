@@ -4,7 +4,6 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
 import { SurveyData } from '../services/excel.service';
-import { MatSnackBar } from '@angular/material/snack-bar'; // <-- Importa MatSnackBar
 
 @Component({
   selector: 'app-details-dialog',
@@ -13,11 +12,12 @@ import { MatSnackBar } from '@angular/material/snack-bar'; // <-- Importa MatSna
   providers: [DatePipe],
 })
 export class DetailsDialogComponent {
+  public copiedField: 'EE' | 'DD' | 'PA' | null = null;
+
   constructor(
     public dialogRef: MatDialogRef<DetailsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: SurveyData,
-    private datePipe: DatePipe,
-    private _snackBar: MatSnackBar // <-- Inyecta el servicio de SnackBar
+    private datePipe: DatePipe
   ) {}
 
   get finalizadoDate(): string {
@@ -27,8 +27,7 @@ export class DetailsDialogComponent {
     );
   }
 
-  copyToClipboard(text: string) {
-    // Creamos un elemento 'textarea' temporal
+  copyToClipboard(text: string, field: 'EE' | 'DD' | 'PA') {
     const textArea = document.createElement('textarea');
     textArea.style.position = 'fixed';
     textArea.style.opacity = '0';
@@ -36,21 +35,18 @@ export class DetailsDialogComponent {
     document.body.appendChild(textArea);
     textArea.select();
     try {
-      // Usamos el comando 'copy' del navegador
       document.execCommand('copy');
-      // Mostramos una notificación de éxito
-      this._snackBar.open(`'${text}' copiado al portapapeles`, 'Cerrar', {
-        duration: 2000,
-        panelClass: ['dialog-snackbar'], // Asignamos nuestra clase personalizada
-      });
+
+      // 1. Guardamos el campo que se copió
+      this.copiedField = field;
+
+      // 2. Después de 1.5 segundos, limpiamos la variable para que el ícono vuelva a la normalidad
+      setTimeout(() => {
+        this.copiedField = null;
+      }, 1500);
     } catch (err) {
       console.error('Error al copiar texto: ', err);
-      // Opcional: mostrar notificación de error
-      this._snackBar.open('Error al intentar copiar', 'Cerrar', {
-        duration: 2000,
-      });
     }
-    // Eliminamos el elemento temporal
     document.body.removeChild(textArea);
   }
 

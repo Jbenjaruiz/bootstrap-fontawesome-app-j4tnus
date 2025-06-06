@@ -4,43 +4,46 @@
   <p><strong>Valores:</strong></p>
   <div class="copy-row">
     <span class="copy-label">EE:</span>
-    <span class="copy-value" [ngClass]="getLevelClass('EE', data.EE)">
-      {{ data.EE }}
-    </span>
+    <span class="copy-value" [ngClass]="getLevelClass('EE', data.EE)">{{
+      data.EE
+    }}</span>
     <button
       mat-icon-button
-      (click)="copyToClipboard(data.EE)"
+      (click)="copyToClipboard(data.EE, 'EE')"
       aria-label="Copiar valor EE"
     >
-      <mat-icon>content_copy</mat-icon>
+      <mat-icon *ngIf="copiedField !== 'EE'">content_copy</mat-icon>
+      <mat-icon *ngIf="copiedField === 'EE'">check</mat-icon>
     </button>
   </div>
 
   <div class="copy-row">
     <span class="copy-label">DD:</span>
-    <span class="copy-value" [ngClass]="getLevelClass('DD', data.DD)">
-      {{ data.DD }}
-    </span>
+    <span class="copy-value" [ngClass]="getLevelClass('DD', data.DD)">{{
+      data.DD
+    }}</span>
     <button
       mat-icon-button
-      (click)="copyToClipboard(data.DD)"
+      (click)="copyToClipboard(data.DD, 'DD')"
       aria-label="Copiar valor DD"
     >
-      <mat-icon>content_copy</mat-icon>
+      <mat-icon *ngIf="copiedField !== 'DD'">content_copy</mat-icon>
+      <mat-icon *ngIf="copiedField === 'DD'">check</mat-icon>
     </button>
   </div>
 
   <div class="copy-row">
     <span class="copy-label">PA:</span>
-    <span class="copy-value" [ngClass]="getLevelClass('PA', data.PA)">
-      {{ data.PA }}
-    </span>
+    <span class="copy-value" [ngClass]="getLevelClass('PA', data.PA)">{{
+      data.PA
+    }}</span>
     <button
       mat-icon-button
-      (click)="copyToClipboard(data.PA)"
+      (click)="copyToClipboard(data.PA, 'PA')"
       aria-label="Copiar valor PA"
     >
-      <mat-icon>content_copy</mat-icon>
+      <mat-icon *ngIf="copiedField !== 'PA'">content_copy</mat-icon>
+      <mat-icon *ngIf="copiedField === 'PA'">check</mat-icon>
     </button>
   </div>
 </mat-dialog-content>
