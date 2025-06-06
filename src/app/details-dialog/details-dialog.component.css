@@ -1,5 +1,3 @@
-/* details-dialog.component.css */
-
 .copy-row {
   display: flex;
   align-items: center;
@@ -15,13 +13,34 @@
 
 .copy-label {
   font-weight: bold;
-  min-width: 40px;
+  min-width: 40px; /* Asegura que las etiquetas tengan un ancho mínimo para alinearse */
 }
 
 .copy-value {
-  flex-grow: 1;
+  flex-grow: 1; /* Hace que el valor ocupe el espacio sobrante */
   font-family: monospace;
-  background-color: #eee;
-  padding: 2px 6px;
+  font-weight: bold; /* Hacemos la letra más gruesa */
+  padding: 4px 8px; /* Aumentamos un poco el padding */
   border-radius: 3px;
+  margin-right: 50px; /* Añade un margen a la derecha */
+  margin-left: 50px; /* Añade un margen a la derecha */
+  text-align: center;
+}
+
+.level-green {
+  background-color: #d4edda; /* Verde claro */
+  color: #155724; /* Verde oscuro */
+  border: 1px solid #c3e6cb;
+}
+
+.level-orange {
+  background-color: #fff3cd; /* Naranja/amarillo claro */
+  color: #856404; /* Naranja oscuro */
+  border: 1px solid #ffeeba;
+}
+
+.level-red {
+  background-color: #f8d7da; /* Rojo claro */
+  color: #721c24; /* Rojo oscuro */
+  border: 1px solid #f5c6cb;
 }

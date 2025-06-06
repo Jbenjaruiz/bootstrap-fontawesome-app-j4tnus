@@ -1,12 +1,12 @@
 <h2 mat-dialog-title>ID: {{ data._id }} - {{ data.Nombre_Completo }}</h2>
-
 <mat-dialog-content>
   <p><strong>Fecha de finalización:</strong> {{ finalizadoDate }}</p>
   <p><strong>Valores:</strong></p>
-
   <div class="copy-row">
     <span class="copy-label">EE:</span>
-    <span class="copy-value">{{ data.EE }}</span>
+    <span class="copy-value" [ngClass]="getLevelClass('EE', data.EE)">
+      {{ data.EE }}
+    </span>
     <button
       mat-icon-button
       (click)="copyToClipboard(data.EE)"
@@ -18,7 +18,9 @@
 
   <div class="copy-row">
     <span class="copy-label">DD:</span>
-    <span class="copy-value">{{ data.DD }}</span>
+    <span class="copy-value" [ngClass]="getLevelClass('DD', data.DD)">
+      {{ data.DD }}
+    </span>
     <button
       mat-icon-button
       (click)="copyToClipboard(data.DD)"
@@ -30,7 +32,9 @@
 
   <div class="copy-row">
     <span class="copy-label">PA:</span>
-    <span class="copy-value">{{ data.PA }}</span>
+    <span class="copy-value" [ngClass]="getLevelClass('PA', data.PA)">
+      {{ data.PA }}
+    </span>
     <button
       mat-icon-button
       (click)="copyToClipboard(data.PA)"
@@ -40,7 +44,3 @@
     </button>
   </div>
 </mat-dialog-content>
-
-<mat-dialog-actions align="end">
-  <button mat-button (click)="onClose()">Cerrar</button>
-</mat-dialog-actions>
