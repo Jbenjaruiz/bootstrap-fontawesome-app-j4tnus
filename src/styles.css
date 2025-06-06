@@ -1,4 +1,7 @@
 /* Add application styles & imports to this file! */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.dialog-snackbar {
+  z-index: 10002 !important; /* Un valor alto para ponerlo encima de todo */
+}
 /* @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css"; */

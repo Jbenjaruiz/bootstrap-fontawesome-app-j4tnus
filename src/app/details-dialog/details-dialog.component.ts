@@ -4,7 +4,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
 import { SurveyData } from '../services/excel.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar'; // <-- Importa MatSnackBar
 
 @Component({
   selector: 'app-details-dialog',
@@ -17,7 +17,7 @@ export class DetailsDialogComponent {
     public dialogRef: MatDialogRef<DetailsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: SurveyData,
     private datePipe: DatePipe,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar // <-- Inyecta el servicio de SnackBar
   ) {}
 
   get finalizadoDate(): string {
@@ -28,10 +28,31 @@ export class DetailsDialogComponent {
   }
 
   copyToClipboard(text: string) {
-    // ... (tu función de copiar se queda igual)
+    // Creamos un elemento 'textarea' temporal
+    const textArea = document.createElement('textarea');
+    textArea.style.position = 'fixed';
+    textArea.style.opacity = '0';
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      // Usamos el comando 'copy' del navegador
+      document.execCommand('copy');
+      // Mostramos una notificación de éxito
+      this._snackBar.open(`'${text}' copiado al portapapeles`, 'Cerrar', {
+        duration: 2000,
+        panelClass: ['dialog-snackbar'], // Asignamos nuestra clase personalizada
+      });
+    } catch (err) {
+      console.error('Error al copiar texto: ', err);
+      // Opcional: mostrar notificación de error
+      this._snackBar.open('Error al intentar copiar', 'Cerrar', {
+        duration: 2000,
+      });
+    }
+    // Eliminamos el elemento temporal
+    document.body.removeChild(textArea);
   }
-
-  // --- INICIO DE LA NUEVA MODIFICACIÓN ---
 
   /**
    * Determina la clase CSS a aplicar según la escala y el valor.
